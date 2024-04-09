@@ -1,39 +1,51 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const nestedHeader = React.createElement(
-  "div",
-  { className: "title" },
-  React.createElement("h1", null, "Main Header"),
-  React.createElement("h2", null, "SubHeader")
-);
+const Header = () => {
+  return (
+     <div className="header">
+       <div className="logoContainer">
+         <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuoUvsJxgu2-pflhefUo48r3mscHJXvVZS59LOMK13cpJyCX1olFEYu6QpzgT1lcNzsLk&usqp=CAU"/>
+       </div>
+       <ul className="navItems">
+         <li>Home</li>
+         <li>About Us</li>
+         <li>Contact US</li>
+         <li>Cart</li>
+       </ul>
+     </div>
+  );
+ }
 
-const jsxNestedHeading = (
-  <div className="title">
-    <h1>Main Header</h1>
-    <h2>SubHeader</h2>
-  </div>
-);
+ const RestaurentCard = ()=>{
+  return(
+    <div className="res-card">
+      <h3>Hotel Aryaas</h3>
+    </div>
+    
+  )
+ }
 
-const heading = React.createElement("h1", { id: "heading" }, "Not Rendered");
-
-function RandFunc(){return(
-  <h1>Hey Ramdom function$</h1>
-);}
-const Sasiye=1000;
-const elem = <h2>Element</h2>
-// JSX
-const JsxHeading = () => {
-    return (
-    <div>
-      <RandFunc/>
-      <h1>{Sasiye+200}</h1>
-      {elem}
-   <h1 id="heading">Nof Renterd in side a Functionnn!</h1>, <h2>H2 aane</h2>
-  </div>
-    );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<JsxHeading/>);
+ const Body = () =>{
+  return(
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+    <RestaurentCard />
+      </div>
+    </div>
+  )
+ }
+ 
+ const AppLayout = () => {
+  return (
+     <div className="app">
+       <Header />
+       <Body />
+     </div>
+  );
+ }
+ 
+ const root = ReactDOM.createRoot(document.getElementById("root"));
+ 
+ root.render(<AppLayout/>);
