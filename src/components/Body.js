@@ -1,9 +1,24 @@
 import RestaurentCard from "./RestaurantCard";
 import restaurants from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [RESTAURENTZZ,setRestaurants] = useState(restaurants);
+
+  useEffect(()=>{fetchData();},[]);
+  console.log("Body Called")
+const fetchData=async()=>{
+const data =await fetch(
+"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.624480699999999&page_type=DESKTOP_WEB_LISTING"
+);
+const json = await data.json();
+console.log(json);
+}
+
+if(restaurants.length===0){
+return <h1>Looooding...</h1>
+};
     return (
       <div className="body">
         <div className="filter">

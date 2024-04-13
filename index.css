@@ -81,6 +81,10 @@
       margin-bottom: 20px;
       cursor: pointer;
    }
+   .login{
+      padding: 10px;
+      background-color: aliceblue;
+   }
    
    /* Responsive design for smaller screens */
    @media (max-width: 768px) {
