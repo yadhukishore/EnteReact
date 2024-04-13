@@ -9,6 +9,9 @@
     align-items: center; /* Align items vertically in the center */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
    }
+   h5{
+      color: green;
+   }
    
    .logoContainer {
     /* Adjust the size of the logo container as needed */
@@ -69,6 +72,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 20px; /* Padding inside the card */
     text-align: center; /* Center text */
+   }
+   .res-logo{
+      width: 250px;
+      height: 190px;
+   }
+   .filter-btn{
+      margin-bottom: 20px;
+      cursor: pointer;
    }
    
    /* Responsive design for smaller screens */
