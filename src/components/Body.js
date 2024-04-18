@@ -1,7 +1,8 @@
 import RestaurentCard from "./RestaurantCard";
-import restaurants from "../utils/mockData";
+import {restaurants} from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [RESTAURENTZZ,setRestaurants] = useState(restaurants);
@@ -28,13 +29,13 @@ return <h1>Looooding...</h1>
           }}>Top Rated restaurant</button>
         </div>
         <div className="res-container">
-          {RESTAURENTZZ.map((res, index) => (
-            <RestaurentCard
-              key={index}
+          {RESTAURENTZZ.map((res) => (
+           <Link key={res.id} to={"/restaurents/"+res.id} > <RestaurentCard
+              key={res.id}
               resName={res.resName}
               fudName={res.foodName}
               rating={res.rating}
-            />
+            /></Link>
           ))}
         </div>
       </div>
