@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Hotels } from "../utils/mockData";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const restaurant = Hotels.find((hotel) => hotel.id.toString() === resId);
+
+  const restaurant = useRestaurantMenu(resId)
 
   if (!restaurant) {
     return (
