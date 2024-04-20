@@ -1,31 +1,45 @@
-import {Component} from "react";
+import { Component } from "react";
 
-class UserClass extends Component{
+class UserClass extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-        super(props);
-        this.state={
-            count:0
-        }
-        console.log(this.props.name+"Parent Constructor");
-    }
-    componentDidMount(){
-        console.log(this.props.name+"Parent componentDidMount")
-    }
+    this.state = {
+      userInfo: {
+        name: "DummyName",
+        login:"DummyUserName",
+      },
+    };
+    console.log(this.props.name + "Parent Constructor");
+  }
+  async componentDidMount() {
+    // console.log(this.props.name+"Child componentDidMount")
+    const data = await fetch("https://api.github.com/users/yadhukishore");
+    const json = await data.json();
 
-     render(){
-        console.log(this.props.name+"Parent Render");
-        const {name,location}=this.props;//Destructure
-        return (
-            <div className='user-card'>
-                <h1>Count:{this.state.count}</h1>
-                <h2>Name: {name}</h2>
-                <h3>Loc: {location}</h3>
-                <h4>Contact: @yadhu37</h4>
+    this.setState({
+        userInfo:json,
+    })
 
-            </div>
-          )
-     }
-};
+    console.log(json);
+  }
+  componentWillUnmount(){
+    console.log("componentWillUnmounted");
+  }
+
+  render() {
+    // console.log(this.props.name+"Child Render")
+    const {name,login,avatar_url}=this.state.userInfo;
+    
+    return (
+      <div className="user-card">
+        <h2>Name: {name}</h2>
+        <img src={avatar_url}/>
+        <h3>Git Username: {login} </h3>
+        <h4>Contact: @yadhu37</h4>
+      </div>
+    );
+  }
+}
 
 export default UserClass;
