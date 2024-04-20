@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Error from "./components/Error";
+import Error from "./components/Error"; 
 import RestaurantMenu from "./components/RestaurantMenu";
 import Parent from "./components/Parent";
 import Sum from "./components/Sum";
