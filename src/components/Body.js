@@ -27,8 +27,8 @@ const Body = () => {
     return <h1>Looooding...</h1>;
   }
   return (
-    <div className="body">
-      <div className="filter">
+    <div className="m-4 p-4">
+      <div className="flex flex-wrap">
         <button
           className="filter-btn"
           onClick={() => {
@@ -38,18 +38,18 @@ const Body = () => {
             setRestaurants(filteredRestaurants);
           }}
         >
-          Top Rated restaurant
+          Top Rated restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {RESTAURENTZZ.map((res) => (
-          <Link key={res.id} to={"/restaurents/" + res.id}>
-            {" "}
+          <Link key={res.id} to={"/restaurents/" +res.id}>
             <RestaurentCard
               key={res.id}
               resName={res.resName}
-              fudName={res.foodName}
+              foodName={res.foodName}
               rating={res.rating}
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4" // Adjust width based on screen size
             />
           </Link>
         ))}

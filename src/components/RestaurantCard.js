@@ -2,7 +2,7 @@
 import { CDN_URL } from "../utils/contants";
 const RestaurentCard = (props) => {
     return (
-      <div className="res-card">
+      <div className="m-5 p-8 w-[280px] bg-slate-200">
         <img
           className="res-logo"
           alt="res-logo"

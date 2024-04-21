@@ -1,10 +1,10 @@
 export const restaurants = [
-    {id:111, resName: "Pizza Hut", foodName: "Pepperoni Pizza" ,rating:3.4},
-    {id:112, resName: "McDonald's", foodName: "Big Mac",rating:2.2 },
-    {id:121, resName: "Hotel Arayas", foodName: "Cutlet",rating:4.1 },
-    {id:211,resName: "Subway", foodName: "Subway Club",rating:3.8 },
-    {id:222, resName: "KFC", foodName: "Original Recipe Chicken",rating:4.4 },
-    {id:333, resName: "Starbucks", foodName: "Caramel Macchiato",rating:2.8 },
+    {id:111, resName: "Pizza Hut", foodName: "Pepperoni Pizza" ,rating:3.4,promote:true},
+    {id:112, resName: "McDonald's", foodName: "Big Mac",rating:2.2 ,promote:false},
+    {id:121, resName: "Hotel Arayas", foodName: "Cutlet",rating:4.1,promote:false },
+    {id:211,resName: "Subway", foodName: "Subway Club",rating:3.8,promote:true },
+    {id:222, resName: "KFC", foodName: "Original Recipe Chicken",rating:4.4 ,promote:false},
+    {id:333, resName: "Starbucks", foodName: "Caramel Macchiato",rating:2.8 ,promote:true},
   ];
 
   export const Hotels = [
