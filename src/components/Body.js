@@ -1,4 +1,4 @@
-import RestaurentCard from "./RestaurantCard";
+import RestaurentCard, { withPromoteLabel } from "./RestaurantCard";
 import { restaurants } from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -7,6 +7,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [RESTAURENTZZ, setRestaurants] = useState(restaurants);
+  const RestaurantCardPromoted = withPromoteLabel(RestaurentCard);
 
   useEffect(() => {
     fetchData();
@@ -30,7 +31,7 @@ const Body = () => {
     <div className="m-4 p-4">
       <div className="flex flex-wrap">
         <button
-          className="filter-btn"
+          className="bg-cyan-500 p-2 mb-5"
           onClick={() => {
             const filteredRestaurants = restaurants.filter(
               (res) => res.rating > 4
@@ -43,14 +44,24 @@ const Body = () => {
       </div>
       <div className="flex flex-wrap">
         {RESTAURENTZZ.map((res) => (
-          <Link key={res.id} to={"/restaurents/" +res.id}>
-            <RestaurentCard
-              key={res.id}
-              resName={res.resName}
-              foodName={res.foodName}
-              rating={res.rating}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4" // Adjust width based on screen size
-            />
+          <Link key={res.id} to={"/restaurents/" + res.id}>
+            {res.promote ? (
+              <RestaurantCardPromoted
+                key={res.id}
+                resName={res.resName}
+                foodName={res.foodName}
+                rating={res.rating}
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+              />
+            ) : (
+              <RestaurentCard
+                key={res.id}
+                resName={res.resName}
+                foodName={res.foodName}
+                rating={res.rating}
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+              />
+            )}
           </Link>
         ))}
       </div>
